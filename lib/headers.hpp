@@ -1,14 +1,25 @@
-#include <iostream>
-#include <string.h>
+#ifndef PROXY_HEADERS
+#define PROXY_HEADERS
+#include <bits/stdc++.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
+#include <errno.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
+#include <pthread.h>
+#include <sys/wait.h>
+#include <netdb.h>
 
 
-extern int sockfd, newsockfd, portno;
-extern socklen_t clilen;
-extern std::string buffer;
-extern struct sockaddr_in serv_addr, cli_addr;
-extern int n;
-extern int port;
+char * converter_requisicao_para_string(struct Requestdeparse * req);
+int criarsocket_servidor(char *endereçoPC, char *Portapc);
+void escreversocket_para_servidor(const char * buff_para_servidor, int  sockfd , int tamanho_buffer);
+void escreversocket_para_cliente(const char* buff_para_servidor, int sockfd , int tamanho_buffer);
+void escrever_para_cliente(int clienteFD , int ServidorFD);
+void * dados_do_cliente(void * sockid);
+#endif
+
