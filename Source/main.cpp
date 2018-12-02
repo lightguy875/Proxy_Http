@@ -1,12 +1,77 @@
 //#include "../lib/headers.hpp"
 #include <iostream>                                                                                                                           
 #include <string.h>
+#include <sstream>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <vector>
 
 using namespace std;
+
+enum METHOD{GET, POST, HEAD};
+
+typedef struct Request {
+    string method;
+    string url;
+    string host;
+    string version;
+    string body;
+} Request;
+
+std::vector<std::string> split(std::string strToSplit, char delimeter)
+{
+    std::stringstream ss(strToSplit);
+    std::string item;
+    std::vector<std::string> splittedStrings;
+    while (std::getline(ss, item, delimeter))
+    {
+       splittedStrings.push_back(item);
+    }
+    return splittedStrings;
+}
+
+Request* parseRequest(string& reqstr){
+   if(reqstr == ""){
+       return NULL;
+   }
+
+   Request *req = new Request;
+   string fullReqStr = reqstr;
+   string buf = ""; 
+   int currentPos = 0;
+   vector<string> lineVec;
+   string currentLine = "";
+    
+   //pega linha atual
+   currentLine = fullReqStr.substr(currentPos,fullReqStr.find('\n'));
+   currentPos = fullReqStr.find('\n',currentPos);
+   lineVec = split(currentLine, ' ');
+
+   req->method = lineVec[0];
+   req->url = lineVec[1];
+   req->version = lineVec[2];
+    
+   //proxima linha
+   currentLine = fullReqStr.substr(currentPos,fullReqStr.find('\n'));
+   currentPos = fullReqStr.find('\n',currentPos);
+   lineVec = split(currentLine, ' ');
+
+   req->host = lineVec[1];
+
+   if(req->method = "POST"){
+       cout << "Post ainda nao esta 100%" << endl;
+   }
+
+  // currentPos = fullReqStr.find(' ') + 1;
+//   cout << currentPos << endl;
+//   cout << fullReqStr.find(' ',currentPos) << endl;
+   //req->url.assign(fullReqStr.substr(currentPos,fullReqStr.find(' ',currentPos)));
+
+
+   return req;
+}
 
 void datafromclient(int* sockid) {
     int MAX_BUFFER_SIZE = 5000;
@@ -36,13 +101,24 @@ void datafromclient(int* sockid) {
             }
         }
         request_message += buf;
-        cout << endl << "SEPARATE" << endl;
-        cout << buff << endl;
+//        cout << endl << "SEPARATE" << endl;
+        //cout << buf << endl;
     }
+    
+    Request *req = parseRequest(request_message);
 
     cout << "Total request" << endl << request_message << endl;
 
- 
+//    cout << "Method and url" << endl;
+
+//    cout << req->method << endl;
+//    cout << req->url << endl;
+//    cout << req->version << endl;
+//    cout << req->host << endl;
+
+    int serverFd;
+     
+    delete req;
 }
 
 int main(int argc, char const *argv[])
