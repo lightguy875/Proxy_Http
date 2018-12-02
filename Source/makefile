@@ -1,8 +1,7 @@
 ID$@IR =../lib
 IDIR = ../lib
 CC= g++ 
-CFLAGS=-I$(IDIR) -ftest-coverage -fprofile-arcs -lgtest -lgtest_main 
--fpermissive
+CFLAGS=-I$(IDIR) -ftest-coverage -fprofile-arcs -lgtest -lgtest_main -fpermissive
 PROGRAM_GCOV = proxy
 ODIR=../obj
 TEST_ODIR=../Test/obj
@@ -14,7 +13,7 @@ LIBS=
 
 PROGRAM = Proxy
 
-_HEADERS = headers.hpp
+_HEADERS = 
 HEADERS = $(patsubst %,$(IDIR)/%,$(_HEADERS))
 
 _OBJECTS = proxy.o 
@@ -55,5 +54,4 @@ clean_coverage:
 	rm -f *.gcno *.gcda *.gcov
 
 clean_all:
-rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ && rm -f *.gcno *.gcda *.gcov 
-$(PROGRAM) $(TEST_EXE)
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ && rm -f *.gcno *.gcda *.gcov $(PROGRAM) $(TEST_EXE)
