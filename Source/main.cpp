@@ -151,7 +151,64 @@ int Create_server_socket(char * pcAddress , char * pcPort)
 
     return iSockfd;
 }
+void writetoserversocket(const char* bff_to_server , int sockfd, int buff_length)
+{
+    std::string temp;
+    temp.append(buff_to_server);
+    int totalSent = 0;
+    int senteach;
 
+    while(totalSent < buff_length)
+    {
+        if((senteach = send(sockfd,(void *)(buff_to_server + totalSent) , buff_length - totalSent , 0)) < 0)
+        {
+            fprintf (stderr , "Erro ao enviar para o servidor ! \n");
+            exit(1);
+        }
+        totalSent += senteach;
+    }
+}
+void writeToclientSocket(const char * buff_to_server,int sockfd, int buff_length)
+{
+    std::string temp;
+
+    temp.append(buff_to_server);
+
+    int totalSent = 0;
+
+    int senteach;
+
+    while(totalsent < buff_length){
+        if((senteach = send(sockfd , (void *)(buff_to_server + totalsent))< 0)
+        {
+            fprintf(stderr , "Erro para enviar para o servidor ! \n");
+
+            exit(1);
+        }
+        totalSent += senteach;
+    }
+}
+
+void writeToClient (int Clientfd, int Serverfd)
+{
+    int MAX_BUF_SIZE = 5000;
+
+    int iRecv;
+    char buf[MAX_BUF_SIZR];
+
+    while((iRecv = recv(Serverfd , buf, MAX_BUF_SIZE, 0)) > 0)
+    {
+        writeToclientSocket(buf,Clientfd,iRecv);
+        memset(buf,0,sizeof buf);
+    }
+
+    // Erro do receptor
+    if(iRecv < 0)
+    {
+        fprintf(stderr,"Erro enquanto recebe dados do servidor! \n");
+        exit(1);
+    }
+}
 
 
 int main(int argc, char const *argv[])
