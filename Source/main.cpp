@@ -61,7 +61,7 @@ Request* parseRequest(string& reqstr){
 
    req->host = lineVec[1];
 
-   if(req->method = "POST"){
+   if(req->method == "POST"){
        cout << "Post ainda nao esta 100%" << endl;
    }
 
@@ -126,21 +126,21 @@ int Create_server_socket(char * pcAddress , char * pcPort)
     struct addrinfo ahints;
     struct addrinfo *paRes;
 
-    int iSockfd
+    int iSockfd;
 
     memset(&ahints,0,sizeof(ahints));
     ahints.ai_family = AF_UNSPEC;
-    ahints.ai_socketype = SOCK_STREAM;
+    ahints.ai_socktype = SOCK_STREAM;
     if(getaddrinfo(pcAddress,pcPort,&ahints,&paRes) != 0){
         fprintf(stderr,"Erro no formato do endereço do servidor ! \n");
         exit(1);
     }
     // Cria e conecta
-    if((iSockfd = socket(paRes->ai_family,paRes->ai_socktype,paRes->ai_protocol)< 0){
+    if((iSockfd = socket(paRes->ai_family,paRes->ai_socktype,paRes->ai_protocol))< 0){
         fprintf (stderr,"Erro ai criar socket do servidor ! \n");
         exit(1);
     }
-    if(connect(iSockfd,paRes->ia_addr),paRes->ai_addr,paRes->ai_addrlen) < 0)
+    if(connect((iSockfd,paRes->ai_addr),paRes->ai_addr,paRes->ai_addrlen) < 0)
     {
         fprintf (stderr , "Erro ao conectar para o servidor \n");
         exit(1);
@@ -151,7 +151,7 @@ int Create_server_socket(char * pcAddress , char * pcPort)
 
     return iSockfd;
 }
-void writetoserversocket(const char* bff_to_server , int sockfd, int buff_length)
+void writetoserversocket(const char* buff_to_server , int sockfd, int buff_length)
 {
     std::string temp;
     temp.append(buff_to_server);
@@ -160,7 +160,7 @@ void writetoserversocket(const char* bff_to_server , int sockfd, int buff_length
 
     while(totalSent < buff_length)
     {
-        if((senteach = send(sockfd,(void *)(buff_to_server + totalSent) , buff_length - totalSent , 0)) < 0)
+        if ((senteach = send(sockfd, (void *)(buff_to_server + totalSent), buff_length - totalSent, 0)) < 0)
         {
             fprintf (stderr , "Erro ao enviar para o servidor ! \n");
             exit(1);
@@ -178,8 +178,8 @@ void writeToclientSocket(const char * buff_to_server,int sockfd, int buff_length
 
     int senteach;
 
-    while(totalsent < buff_length){
-        if((senteach = send(sockfd , (void *)(buff_to_server + totalsent))< 0)
+    while(totalSent < buff_length){
+        if ((senteach = send(sockfd, (void *)(buff_to_server + totalSent), buff_length - totalSent, 0)) < 0)
         {
             fprintf(stderr , "Erro para enviar para o servidor ! \n");
 
@@ -194,7 +194,7 @@ void writeToClient (int Clientfd, int Serverfd)
     int MAX_BUF_SIZE = 5000;
 
     int iRecv;
-    char buf[MAX_BUF_SIZR];
+    char buf[MAX_BUF_SIZE];
 
     while((iRecv = recv(Serverfd , buf, MAX_BUF_SIZE, 0)) > 0)
     {
