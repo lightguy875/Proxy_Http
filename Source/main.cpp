@@ -7,6 +7,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <vector>
+#include <netdb.h>
 
 using namespace std;
 
@@ -120,6 +121,38 @@ void datafromclient(int* sockid) {
      
     delete req;
 }
+int Create_server_socket(char * pcAddress , char * pcPort)
+{
+    struct addrinfo ahints;
+    struct addrinfo *paRes;
+
+    int iSockfd
+
+    memset(&ahints,0,sizeof(ahints));
+    ahints.ai_family = AF_UNSPEC;
+    ahints.ai_socketype = SOCK_STREAM;
+    if(getaddrinfo(pcAddress,pcPort,&ahints,&paRes) != 0){
+        fprintf(stderr,"Erro no formato do endereço do servidor ! \n");
+        exit(1);
+    }
+    // Cria e conecta
+    if((iSockfd = socket(paRes->ai_family,paRes->ai_socktype,paRes->ai_protocol)< 0){
+        fprintf (stderr,"Erro ai criar socket do servidor ! \n");
+        exit(1);
+    }
+    if(connect(iSockfd,paRes->ia_addr),paRes->ai_addr,paRes->ai_addrlen) < 0)
+    {
+        fprintf (stderr , "Erro ao conectar para o servidor \n");
+        exit(1);
+    }
+    freeaddrinfo(paRes);
+
+
+
+    return iSockfd;
+}
+
+
 
 int main(int argc, char const *argv[])
 {
@@ -141,7 +174,7 @@ int main(int argc, char const *argv[])
     
     serv_addr.sin_family = AF_INET;     // ip4 family
   	serv_addr.sin_addr.s_addr = INADDR_ANY;  // represents for localhost i.e 127.0.0.1
- 	serv_addr.sin_port = htons(portNum);
+ 	serv_addr.sin_port = htons(portNum); // seleciona a porta do servidor
     
     //binda o socket no server local
     int binded = bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
