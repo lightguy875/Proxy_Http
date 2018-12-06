@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/socket.h>
 
 #define PORT_DEFAULT    8228
 #define MAXPENDING      5
@@ -29,6 +30,10 @@ protected:
 private:
     in_port_t listenPort;
     void dataFromClient(int* sockid);
+    void WriteToClientSocket(const char* buffer_to_client, int sockfd, int buff_length);
+    void WriteToServerSocket(const char* buffer_to_server, int sockfd, int buff_length);
+    void writeToClient (int Clientfd, int Serverfd);
+
 };
 
 #endif // PROXY_H

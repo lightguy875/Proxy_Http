@@ -2,11 +2,15 @@
 #include <QScrollArea>
 #include <string>
 #include <stdio.h>
+#include <netdb.h>
+#include <QtCore>
+
 
 proxy::proxy( in_port_t p, QObject* parent )
    : QThread(parent)
 {
     listenPort = p;
+
 }
 
 const std::string termino = "\r\n\r\n";
@@ -73,6 +77,68 @@ void proxy::dataFromClient(int* sockid)
     std::string request_msg = "";
 
 }
+
+void proxy::WriteToServerSocket(const char* buffer_to_server, int sockfd, int buff_length)
+{
+    std::string temp;
+
+    temp.append(buffer_to_server);
+
+    int totalsent = 0;
+
+    int senteach;
+
+    while(totalsent < buff_length){
+        if((senteach = send(sockfd, (void *)(buffer_to_server + totalsent),(buff_length - totalsent),0))< 0)
+        {
+            fprintf(stderr,"Erro para enviar para o servidor ! \n");
+            exit(1);
+        }
+    }
+}
+
+void proxy::WriteToClientSocket(const char* buffer_to_client, int sockfd, int buff_length)
+{
+    std::string temp;
+
+    temp.append(buffer_to_client);
+
+    int totalsent = 0;
+
+    int senteach;
+
+    while(totalsent < buff_length)
+        {
+        if((senteach = send(sockfd, (void *)(buffer_to_client + totalsent),(buff_length - totalsent),0))< 0)
+        {
+            fprintf(stderr,"Erro para enviar para o servidor ! \n");
+            exit(1);
+        }
+    }
+
+}
+void proxy::writeToClient (int Clientfd, int Serverfd)
+{
+    int MAX_BUFFER_SIZE = 5000;
+
+    int RECV;
+    char buffer[MAX_BUFFER_SIZE];
+
+    while((RECV = recv(Serverfd,buffer,MAX_BUFFER_SIZE,0)) > 0)
+    {
+        proxy::WriteToClientSocket(buffer,Clientfd,RECV);
+        memset(buffer,0,sizeof(buffer));
+    }
+
+    if(RECV < 0)
+    {
+        fprintf(stderr, "Yo..!! Error while recieving from server ! \n");
+        exit(1);
+
+    }
+
+}
+
 /*
 proxy::~proxy( void )
 {
