@@ -1,0 +1,240 @@
+\hypertarget{main_8cpp}{}\section{Referência do Arquivo src/main.cpp}
+\label{main_8cpp}\index{src/main.\+cpp@{src/main.\+cpp}}
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}parser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}comm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spider.\+h\char`\"{}}\newline
+\subsection*{Definições e Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a513a1e087ec66df3c5a44eaba0f4b11e}\label{main_8cpp_a513a1e087ec66df3c5a44eaba0f4b11e}} 
+\#define {\bfseries L\+O\+C\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+S\+TR}~\char`\"{}127.\+0.\+0.\+1\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_aa44a81dc9cd2a0d29c510abc1a40becc}\label{main_8cpp_aa44a81dc9cd2a0d29c510abc1a40becc}} 
+\#define {\bfseries Q\+U\+I\+T\+\_\+\+U\+RL}~\char`\"{}http\+://127.\+0.\+0.\+2/\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_adb629223ee858bf3b4cf3b7b31d1f931}\label{main_8cpp_adb629223ee858bf3b4cf3b7b31d1f931}} 
+\#define {\bfseries M\+A\+X\+B\+U\+F\+F\+S\+I\+ZE}~5000
+\item 
+\mbox{\Hypertarget{main_8cpp_ac16f49832a22683c56eb9c188d79a282}\label{main_8cpp_ac16f49832a22683c56eb9c188d79a282}} 
+\#define {\bfseries P\+R\+O\+X\+Y\+\_\+\+P\+O\+R\+T\+\_\+\+D\+E\+F\+A\+U\+LT}~8228
+\item 
+\mbox{\Hypertarget{main_8cpp_a9474f49b3a0ab59316a37848fd4d20b5}\label{main_8cpp_a9474f49b3a0ab59316a37848fd4d20b5}} 
+\#define {\bfseries M\+A\+X\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+R\+E\+Q\+U\+E\+ST}~5
+\item 
+\mbox{\Hypertarget{main_8cpp_a461dd9ca1e708c1761f538b933f6f6d1}\label{main_8cpp_a461dd9ca1e708c1761f538b933f6f6d1}} 
+\#define {\bfseries H\+T\+T\+P\+\_\+\+M\+S\+G\+\_\+\+OK}~\char`\"{}H\+T\+TP/1.\+0 200 O\+K\textbackslash{}r\textbackslash{}n\textbackslash{}r\textbackslash{}n\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a8c25998f80abf59bbbc3fd3011d8bba6}\label{main_8cpp_a8c25998f80abf59bbbc3fd3011d8bba6}} 
+\#define {\bfseries forever}~while(1)
+\end{DoxyCompactItemize}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_ada7f4f7639bb4bb09198755e7806c9d6}{aux\+Print}} (char $\ast$)
+\begin{DoxyCompactList}\small\item\em Print de segurança. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Função principal do programa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+\begin{DoxyAuthor}{Autor}
+Luís Eduardo Luz Silva -\/ 15/0137885 (\href{mailto:lightguy875@github.com}{\tt lightguy875@github.\+com}) 
+
+Gabriel Augusto Correia -\/ 15/0126000 (\href{mailto:GustoMelchior@github.com}{\tt Gusto\+Melchior@github.\+com}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2018-\/12-\/11
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2018 
+\end{DoxyCopyright}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{main_8cpp_ada7f4f7639bb4bb09198755e7806c9d6}\label{main_8cpp_ada7f4f7639bb4bb09198755e7806c9d6}} 
+\index{main.\+cpp@{main.\+cpp}!aux\+Print@{aux\+Print}}
+\index{aux\+Print@{aux\+Print}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{aux\+Print()}{auxPrint()}}
+{\footnotesize\ttfamily void aux\+Print (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf }\end{DoxyParamCaption})}
+
+
+
+Print de segurança. 
+
+Não usa-\/se printf por motivos de segurança.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em buf} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+180 \{
+181     \textcolor{keywordtype}{char}* c = buf;
+182     \textcolor{keywordflow}{while}( c[0] != \textcolor{charliteral}{'\(\backslash\)0'} )
+183     \{
+184         std::putc(c[0],stdout);
+185         c++;
+186     \}
+187 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Função principal do programa. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+50 \{
+51     \textcolor{keywordtype}{int} proxyPort, sock, otherSock;
+52     \textcolor{keyword}{struct }sockaddr\_in proxyAddr, clientAddr;
+53     \textcolor{keyword}{struct }hostent *server;
+54     \textcolor{keywordtype}{int} clientLength, requestLength;
+55     \textcolor{keywordtype}{int} sockOpt;
+56     \textcolor{keywordtype}{char} request[MAXBUFFSIZE], URL[MAXBUFFSIZE], 
+57         host[MAXBUFFSIZE], buf[MAXBUFFSIZE];
+58     \textcolor{keywordtype}{char} fileName[256], tmpUrl[256], ip[256];
+59     \textcolor{keywordtype}{char} *reply;
+60     std::FILE *requestFile, *replyFile, *spiderFile;
+61     \mbox{\hyperlink{structurl_node}{urlNode}}* list; \textcolor{comment}{// "spider"}
+62 
+63     \textcolor{comment}{// Entrada do listen    }
+64     proxyPort = PROXY\_PORT\_DEFAULT;
+65 
+66     \textcolor{comment}{// Seleção manual da porta do proxy}
+67     \textcolor{keywordflow}{if}( argc == 3 )
+68     \{
+69         \textcolor{comment}{// -p ou -P}
+70         \textcolor{keywordflow}{if}( std::strcmp( argv[1], \textcolor{stringliteral}{"-p"} ) == 0 )
+71         \{
+72             proxyPort = std::atoi( argv[2] ); 
+73         \}
+74         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( std::strcmp( argv[1], \textcolor{stringliteral}{"-P"} ) == 0 )
+75         \{
+76             proxyPort = std::atoi( argv[2] );
+77         \}
+78     \}
+79 
+80     \textcolor{comment}{// Escuta o browser até que QUIT\_URL seja requisitada}
+81     forever \{
+82         \textcolor{comment}{// Cria socket de entrada}
+83         sock = socket( AF\_INET, SOCK\_STREAM, 0 );
+84         \textcolor{keywordflow}{if}( sock < 0 )
+85         \{ 
+86             printf(\textcolor{stringliteral}{"Falha ao criar socket.\(\backslash\)n"});
+87             exit(1);
+88         \}
+89 
+90         std::memset(&proxyAddr,0,\textcolor{keyword}{sizeof}(proxyAddr));
+91 
+92         proxyAddr.sin\_family = AF\_INET; \textcolor{comment}{// IPv4}
+93 
+94         proxyAddr.sin\_addr.s\_addr = inet\_addr(LOCAL\_HOST\_STR); \textcolor{comment}{// Localhost}
+95         proxyAddr.sin\_port = htons( proxyPort ); \textcolor{comment}{// Porta do servidor}
+96 
+97         \textcolor{comment}{// Evita erros de bind}
+98         sockOpt = 1; \textcolor{comment}{// Opção booleana}
+99     \textcolor{keywordflow}{if}( setsockopt(sock,SOL\_SOCKET,SO\_REUSEADDR,&sockOpt,\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})) == -1 ) \{ printf(\textcolor{stringliteral}{"Falha ao selecionar
+       opcao do socket.\(\backslash\)n"}); exit(1); \}
+100 
+101         \textcolor{keywordflow}{if}( bind(sock, (\textcolor{keyword}{struct} sockaddr*)&proxyAddr,\textcolor{keyword}{sizeof}(proxyAddr)) < 0) \{
+102             printf(\textcolor{stringliteral}{"Falha ao realizar binding do socket\(\backslash\)n"}); exit(1); \}
+103 
+104         printf(\textcolor{stringliteral}{"Faca uma requisicao de pagina pelo navegador.\(\backslash\)n"});
+105         \textcolor{comment}{// Escuta requisição do browser}
+106         listen( sock, MAX\_CLIENT\_REQUEST );
+107 
+108         clientLength = \textcolor{keyword}{sizeof}( clientAddr );
+109         otherSock = accept(sock,(\textcolor{keyword}{struct} sockaddr*)&clientAddr,(socklen\_t*)&clientLength);
+110         \textcolor{keywordflow}{if}(otherSock<0)
+111         \{
+112             printf(\textcolor{stringliteral}{"Erro ao aceitar requisicao.\(\backslash\)n"});
+113             exit(1);
+114         \};
+115         close(sock);
+116 
+117         \textcolor{comment}{// Lê o request do socket}
+118         std::memset(&request,0,MAXBUFFSIZE);
+119         \textcolor{keywordflow}{if}( read(otherSock, request, MAXBUFFSIZE) < 0 ) ; \textcolor{comment}{// Tratar erro aqui}
+120         printf(\textcolor{stringliteral}{"Requisicao do Browser: \(\backslash\)n\(\backslash\)n"});
+121         \mbox{\hyperlink{main_8cpp_ada7f4f7639bb4bb09198755e7806c9d6}{auxPrint}}(request);
+122         printf(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});
+123         
+124         requestLength = std::strlen(request)+1;
+125         \mbox{\hyperlink{parser_8h_a269d44a026e3a9ca7c9e9d9150149901}{RequestURL}}( request, requestLength, URL, MAXBUFFSIZE );
+126         \textcolor{keywordflow}{if}( std::strcmp(URL,QUIT\_URL)==0 )
+127         \{
+128             printf(\textcolor{stringliteral}{"Requisicao da URL de saida (%s)\(\backslash\)nDesligando proxy...\(\backslash\)n"},QUIT\_URL); 
+129             \textcolor{keywordflow}{break};
+130         \}
+131         printf(\textcolor{stringliteral}{"URL: "});
+132         \mbox{\hyperlink{main_8cpp_ada7f4f7639bb4bb09198755e7806c9d6}{auxPrint}}(URL);
+133 
+134         printf(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});
+135 
+136         sendRequest( );
+137 
+138         \textcolor{keywordflow}{if}( (replyFile = fopen(\textcolor{stringliteral}{"/proxy/reply.txt"},\textcolor{stringliteral}{"rb"}))==NULL) exit(1);
+139         memset(buf,0,MAXBUFFSIZE);
+140         \textcolor{keywordflow}{while}( fread(buf,1,\textcolor{keyword}{sizeof}(buf),replyFile)==\textcolor{keyword}{sizeof}(buf))
+141             send(otherSock,buf,\textcolor{keyword}{sizeof}(buf),0);
+142         fclose( replyFile );
+143 
+144         \textcolor{comment}{// Envia OK ao navegador}
+145         send(otherSock, HTTP\_MSG\_OK, 19, 0);
+146 
+147         \textcolor{comment}{// Spider}
+148         list = NULL;
+149 
+150             \mbox{\hyperlink{parser_8h_a92dbc7ddb2bdde346ff346174024d347}{RequestHost}}( request, \textcolor{keyword}{sizeof}(request), host, MAXBUFFSIZE);
+151         printf(\textcolor{stringliteral}{"Host: "});
+152         \mbox{\hyperlink{main_8cpp_ada7f4f7639bb4bb09198755e7806c9d6}{auxPrint}}(host);
+153         printf(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});
+154 
+155         printf(\textcolor{stringliteral}{"Spider:\(\backslash\)n"});
+156         printf(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});
+157         \mbox{\hyperlink{spider_8cpp_a043d25255bb1b46f4b42c0bbefffe7c8}{Spider}}( URL, host, &list );
+158         system(\textcolor{stringliteral}{"mkdir -p ./proxy"});
+159         memset( fileName, 0, 256 );
+160         memset( tmpUrl, 0, 256 );
+161         \mbox{\hyperlink{parser_8h_a836b1c128e1a55ecd9312198e84ff586}{GetRequestParent}}( URL, fileName, 256 );
+162         \mbox{\hyperlink{parser_8h_a27844bd714dbfbaa5cece5b9a3fd6048}{RemoveHTTPFromUrl}}( fileName, tmpUrl, 256 );
+163         memset( fileName, 0, 256 );
+164         std::strcpy( fileName, \textcolor{stringliteral}{"./proxy/"});
+165         std::strcat( fileName, tmpUrl );
+166         std::strcat( fileName, \textcolor{stringliteral}{".log"} );
+167         spiderFile = fopen( fileName, \textcolor{stringliteral}{"wb"} );
+168 
+169         fclose( spiderFile );
+170         close(otherSock);
+171     \}
+172 \}
+\end{DoxyCode}

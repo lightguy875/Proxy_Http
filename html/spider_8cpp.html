@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>proxy_Http: Referência do Arquivo src/spider.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">proxy_Http
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo spider.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="parser_8h_source.html">parser.h</a>&quot;</code><br />
+<code>#include &quot;comm.h&quot;</code><br />
+<code>#include &quot;spider.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a89dcb2b6f6c70ef955329aae9d85b964"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spider_8cpp.html#a89dcb2b6f6c70ef955329aae9d85b964">AddNode</a> (<a class="el" href="structurl_node.html">urlNode</a> **head, <a class="el" href="structurl_node.html">urlNode</a> *parent, char *url)</td></tr>
+<tr class="memdesc:a89dcb2b6f6c70ef955329aae9d85b964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um nó na árvore comsiderando o nó pai e o parente.  <a href="#a89dcb2b6f6c70ef955329aae9d85b964">Mais...</a><br /></td></tr>
+<tr class="separator:a89dcb2b6f6c70ef955329aae9d85b964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b46a44f24a820113649083c5554a07b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spider_8cpp.html#a7b46a44f24a820113649083c5554a07b">DeleteListURL</a> (<a class="el" href="structurl_node.html">urlNode</a> **head)</td></tr>
+<tr class="memdesc:a7b46a44f24a820113649083c5554a07b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apaga a lista de endereços.  <a href="#a7b46a44f24a820113649083c5554a07b">Mais...</a><br /></td></tr>
+<tr class="separator:a7b46a44f24a820113649083c5554a07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec48bc8077cdd0125c42fb30dbbbf21a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spider_8cpp.html#aec48bc8077cdd0125c42fb30dbbbf21a">Find</a> (<a class="el" href="structurl_node.html">urlNode</a> *list, char *url)</td></tr>
+<tr class="memdesc:aec48bc8077cdd0125c42fb30dbbbf21a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pesquisa uma URL na lista.  <a href="#aec48bc8077cdd0125c42fb30dbbbf21a">Mais...</a><br /></td></tr>
+<tr class="separator:aec48bc8077cdd0125c42fb30dbbbf21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a043d25255bb1b46f4b42c0bbefffe7c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spider_8cpp.html#a043d25255bb1b46f4b42c0bbefffe7c8">Spider</a> (char *url, char *host, <a class="el" href="structurl_node.html">urlNode</a> **list)</td></tr>
+<tr class="memdesc:a043d25255bb1b46f4b42c0bbefffe7c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a operação de spider a partir de uma URL, lista de nós e um link de host.  <a href="#a043d25255bb1b46f4b42c0bbefffe7c8">Mais...</a><br /></td></tr>
+<tr class="separator:a043d25255bb1b46f4b42c0bbefffe7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Luís Eduardo Luz Silva - 15/0137885 (<a href="#" onclick="location.href='mai'+'lto:'+'lig'+'ht'+'guy'+'87'+'5@g'+'it'+'hub'+'.c'+'om'; return false;">light<span style="display: none;">.nosp@m.</span>guy8<span style="display: none;">.nosp@m.</span>75@gi<span style="display: none;">.nosp@m.</span>thub<span style="display: none;">.nosp@m.</span>.com</a>) </dd>
+<dd>
+Gabriel Augusto Correia - 15/0126000 (<a href="#" onclick="location.href='mai'+'lto:'+'Gus'+'to'+'Mel'+'ch'+'ior'+'@g'+'ith'+'ub'+'.co'+'m'; return false;">Gusto<span style="display: none;">.nosp@m.</span>Melc<span style="display: none;">.nosp@m.</span>hior@<span style="display: none;">.nosp@m.</span>gith<span style="display: none;">.nosp@m.</span>ub.co<span style="display: none;">.nosp@m.</span>m</a>) </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>2018-12-11</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2018 </dd></dl>
+</div><h2 class="groupheader">Funções</h2>
+<a id="a89dcb2b6f6c70ef955329aae9d85b964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89dcb2b6f6c70ef955329aae9d85b964">&#9670;&nbsp;</a></span>AddNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AddNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structurl_node.html">urlNode</a> **&#160;</td>
+          <td class="paramname"><em>head</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structurl_node.html">urlNode</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>url</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adiciona um nó na árvore comsiderando o nó pai e o parente. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td></td></tr>
+    <tr><td class="paramname">url</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="structurl_node.html">urlNode</a> *list, *lastNode;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    list = (<a class="code" href="structurl_node.html">urlNode</a>*)std::malloc( <span class="keyword">sizeof</span>(<a class="code" href="structurl_node.html">urlNode</a>) );</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span>( *head == NULL )</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        *head = list;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        (*head)-&gt;next = (*head)-&gt;prev = NULL;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">else</span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        lastNode = *head;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">while</span>( lastNode-&gt;next != NULL )</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            lastNode = lastNode-&gt;next;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        list-&gt;prev = lastNode;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        lastNode-&gt;next = list;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        list-&gt;next = NULL;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::memset(url,0,std::strlen(url));</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    list-&gt;parent = parent;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div><div class="ttc" id="structurl_node_html"><div class="ttname"><a href="structurl_node.html">urlNode</a></div><div class="ttdef"><b>Definition:</b> spider.h:15</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7b46a44f24a820113649083c5554a07b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b46a44f24a820113649083c5554a07b">&#9670;&nbsp;</a></span>DeleteListURL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DeleteListURL </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structurl_node.html">urlNode</a> **&#160;</td>
+          <td class="paramname"><em>head</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Apaga a lista de endereços. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="structurl_node.html">urlNode</a> *aux;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">while</span> (*head != NULL)</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        aux = *head;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        *head = (*head)-&gt;next;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        free(aux);</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div><div class="ttc" id="structurl_node_html"><div class="ttname"><a href="structurl_node.html">urlNode</a></div><div class="ttdef"><b>Definition:</b> spider.h:15</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aec48bc8077cdd0125c42fb30dbbbf21a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec48bc8077cdd0125c42fb30dbbbf21a">&#9670;&nbsp;</a></span>Find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Find </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structurl_node.html">urlNode</a> *&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>url</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pesquisa uma URL na lista. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td></td></tr>
+    <tr><td class="paramname">url</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int </dd></dl>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">while</span>( list != NULL )</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span>( std::strcmp( url, list-&gt;url ) == 0 )</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> 1;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> 0;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a043d25255bb1b46f4b42c0bbefffe7c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a043d25255bb1b46f4b42c0bbefffe7c8">&#9670;&nbsp;</a></span>Spider()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Spider </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>url</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>host</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structurl_node.html">urlNode</a> **&#160;</td>
+          <td class="paramname"><em>list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza a operação de spider a partir de uma URL, lista de nós e um link de host. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url</td><td></td></tr>
+    <tr><td class="paramname">host</td><td></td></tr>
+    <tr><td class="paramname">list</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">char</span> nxtUrl[MAXBUFFSIZE], tmpUrl[MAXBUFFSIZE], tmpLine[MAXBUFFSIZE], parentUrl[MAXBUFFSIZE];</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">char</span> *j, *ptr;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">int</span> i, k, tNode, parentSize, depth, w;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    i = depth = 0;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    std::FILE*  fileBuf;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="structurl_node.html">urlNode</a> *nextNode, *lastVisited;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    std::memset( nxtUrl, 0, MAXBUFFSIZE );</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    std::memset( tmpUrl, 0, MAXBUFFSIZE );</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    std::memset( tmpLine, 0, MAXBUFFSIZE );</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    std::memset( parentUrl, 0, MAXBUFFSIZE );</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="spider_8cpp.html#a89dcb2b6f6c70ef955329aae9d85b964">AddNode</a>( list, NULL, url ); <span class="comment">// Nova lista, sem pai, a partir do link</span></div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    lastVisited = NULL;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    nextNode = *list;</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="parser_8h.html#a836b1c128e1a55ecd9312198e84ff586">GetRequestParent</a>( url, parentUrl, MAXBUFFSIZE ); <span class="comment">// Obtém pai do link</span></div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    parentSize = std::strlen( parentUrl );</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span>( parentUrl[parentSize] == <span class="charliteral">&#39;/&#39;</span> )</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        parentUrl[parentSize] = <span class="charliteral">&#39;\0&#39;</span>;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        parentSize--;</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">// Remove &#39;/&#39; do final do link, para formatação para processamento</span></div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">if</span>( parentUrl[parentSize-1] == <span class="charliteral">&#39;/&#39;</span> )</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        parentUrl[parentSize-1] = <span class="charliteral">&#39;\0&#39;</span>;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    std::strcpy( nxtUrl, url ); <span class="comment">// Copia a URL</span></div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">// Enquanto houverem objetos a serem visitados</span></div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">while</span>( nextNode != NULL )</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    {</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">if</span>( depth &lt; (nextNode-&gt;depth+1) )</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            depth = nextNode-&gt;depth + 1;</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">if</span>( <a class="code" href="spider_8cpp.html#aec48bc8077cdd0125c42fb30dbbbf21a">Find</a>( nextNode, nxtUrl ) == 0 &amp;&amp; <a class="code" href="parser_8h.html#a5a941c1f46841c46f3cf98100c806a0e">CountChar</a>( nxtUrl, <span class="charliteral">&#39;#&#39;</span>, std::strlen( nxtUrl ) ) == 0 )</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        {</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        </div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div><div class="ttc" id="parser_8h_html_a836b1c128e1a55ecd9312198e84ff586"><div class="ttname"><a href="parser_8h.html#a836b1c128e1a55ecd9312198e84ff586">GetRequestParent</a></div><div class="ttdeci">void GetRequestParent(char *url, char *rtn, int rtnSize)</div><div class="ttdoc">Obtem o Request de um elemento parente. </div><div class="ttdef"><b>Definition:</b> parser.cpp:255</div></div>
+<div class="ttc" id="structurl_node_html"><div class="ttname"><a href="structurl_node.html">urlNode</a></div><div class="ttdef"><b>Definition:</b> spider.h:15</div></div>
+<div class="ttc" id="spider_8cpp_html_a89dcb2b6f6c70ef955329aae9d85b964"><div class="ttname"><a href="spider_8cpp.html#a89dcb2b6f6c70ef955329aae9d85b964">AddNode</a></div><div class="ttdeci">void AddNode(urlNode **head, urlNode *parent, char *url)</div><div class="ttdoc">Adiciona um nó na árvore comsiderando o nó pai e o parente. </div><div class="ttdef"><b>Definition:</b> spider.cpp:23</div></div>
+<div class="ttc" id="spider_8cpp_html_aec48bc8077cdd0125c42fb30dbbbf21a"><div class="ttname"><a href="spider_8cpp.html#aec48bc8077cdd0125c42fb30dbbbf21a">Find</a></div><div class="ttdeci">int Find(urlNode *list, char *url)</div><div class="ttdoc">Pesquisa uma URL na lista. </div><div class="ttdef"><b>Definition:</b> spider.cpp:68</div></div>
+<div class="ttc" id="parser_8h_html_a5a941c1f46841c46f3cf98100c806a0e"><div class="ttname"><a href="parser_8h.html#a5a941c1f46841c46f3cf98100c806a0e">CountChar</a></div><div class="ttdeci">int CountChar(char *string, char symb, int size)</div><div class="ttdoc">Conta a quantidade de characteres de um programa. </div><div class="ttdef"><b>Definition:</b> parser.cpp:21</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

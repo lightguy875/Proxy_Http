@@ -1,0 +1,206 @@
+\hypertarget{spider_8cpp}{}\section{Referência do Arquivo src/spider.cpp}
+\label{spider_8cpp}\index{src/spider.\+cpp@{src/spider.\+cpp}}
+{\ttfamily \#include \char`\"{}parser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}comm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spider.\+h\char`\"{}}\newline
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{spider_8cpp_a89dcb2b6f6c70ef955329aae9d85b964}{Add\+Node}} (\mbox{\hyperlink{structurl_node}{url\+Node}} $\ast$$\ast$head, \mbox{\hyperlink{structurl_node}{url\+Node}} $\ast$parent, char $\ast$url)
+\begin{DoxyCompactList}\small\item\em Adiciona um nó na árvore comsiderando o nó pai e o parente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{spider_8cpp_a7b46a44f24a820113649083c5554a07b}{Delete\+List\+U\+RL}} (\mbox{\hyperlink{structurl_node}{url\+Node}} $\ast$$\ast$head)
+\begin{DoxyCompactList}\small\item\em Apaga a lista de endereços. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{spider_8cpp_aec48bc8077cdd0125c42fb30dbbbf21a}{Find}} (\mbox{\hyperlink{structurl_node}{url\+Node}} $\ast$list, char $\ast$url)
+\begin{DoxyCompactList}\small\item\em Pesquisa uma U\+RL na lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{spider_8cpp_a043d25255bb1b46f4b42c0bbefffe7c8}{Spider}} (char $\ast$url, char $\ast$host, \mbox{\hyperlink{structurl_node}{url\+Node}} $\ast$$\ast$list)
+\begin{DoxyCompactList}\small\item\em Realiza a operação de spider a partir de uma U\+RL, lista de nós e um link de host. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+\begin{DoxyAuthor}{Autor}
+Luís Eduardo Luz Silva -\/ 15/0137885 (\href{mailto:lightguy875@github.com}{\tt lightguy875@github.\+com}) 
+
+Gabriel Augusto Correia -\/ 15/0126000 (\href{mailto:GustoMelchior@github.com}{\tt Gusto\+Melchior@github.\+com}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2018-\/12-\/11
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2018 
+\end{DoxyCopyright}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{spider_8cpp_a89dcb2b6f6c70ef955329aae9d85b964}\label{spider_8cpp_a89dcb2b6f6c70ef955329aae9d85b964}} 
+\index{spider.\+cpp@{spider.\+cpp}!Add\+Node@{Add\+Node}}
+\index{Add\+Node@{Add\+Node}!spider.\+cpp@{spider.\+cpp}}
+\subsubsection{\texorpdfstring{Add\+Node()}{AddNode()}}
+{\footnotesize\ttfamily void Add\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structurl_node}{url\+Node}} $\ast$$\ast$}]{head,  }\item[{\mbox{\hyperlink{structurl_node}{url\+Node}} $\ast$}]{parent,  }\item[{char $\ast$}]{url }\end{DoxyParamCaption})}
+
+
+
+Adiciona um nó na árvore comsiderando o nó pai e o parente. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em head} & \\
+\hline
+{\em parent} & \\
+\hline
+{\em url} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+24 \{
+25     \mbox{\hyperlink{structurl_node}{urlNode}} *list, *lastNode;
+26 
+27     list = (\mbox{\hyperlink{structurl_node}{urlNode}}*)std::malloc( \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structurl_node}{urlNode}}) );
+28     \textcolor{keywordflow}{if}( *head == NULL )
+29     \{
+30         *head = list;
+31         (*head)->next = (*head)->prev = NULL;
+32     \}
+33     \textcolor{keywordflow}{else}
+34     \{
+35         lastNode = *head;
+36         \textcolor{keywordflow}{while}( lastNode->next != NULL )
+37             lastNode = lastNode->next;
+38         list->prev = lastNode;
+39         lastNode->next = list;
+40         list->next = NULL;
+41     \}
+42     std::memset(url,0,std::strlen(url));
+43     list->parent = parent;
+44 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{spider_8cpp_a7b46a44f24a820113649083c5554a07b}\label{spider_8cpp_a7b46a44f24a820113649083c5554a07b}} 
+\index{spider.\+cpp@{spider.\+cpp}!Delete\+List\+U\+RL@{Delete\+List\+U\+RL}}
+\index{Delete\+List\+U\+RL@{Delete\+List\+U\+RL}!spider.\+cpp@{spider.\+cpp}}
+\subsubsection{\texorpdfstring{Delete\+List\+U\+R\+L()}{DeleteListURL()}}
+{\footnotesize\ttfamily void Delete\+List\+U\+RL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structurl_node}{url\+Node}} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Apaga a lista de endereços. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em head} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+51 \{
+52     \mbox{\hyperlink{structurl_node}{urlNode}} *aux;
+53 
+54     \textcolor{keywordflow}{while} (*head != NULL)
+55     \{
+56         aux = *head;
+57         *head = (*head)->next;
+58         free(aux);
+59     \}
+60 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{spider_8cpp_aec48bc8077cdd0125c42fb30dbbbf21a}\label{spider_8cpp_aec48bc8077cdd0125c42fb30dbbbf21a}} 
+\index{spider.\+cpp@{spider.\+cpp}!Find@{Find}}
+\index{Find@{Find}!spider.\+cpp@{spider.\+cpp}}
+\subsubsection{\texorpdfstring{Find()}{Find()}}
+{\footnotesize\ttfamily int Find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structurl_node}{url\+Node}} $\ast$}]{list,  }\item[{char $\ast$}]{url }\end{DoxyParamCaption})}
+
+
+
+Pesquisa uma U\+RL na lista. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em list} & \\
+\hline
+{\em url} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+69 \{
+70     \textcolor{keywordflow}{while}( list != NULL )
+71     \{
+72         \textcolor{keywordflow}{if}( std::strcmp( url, list->url ) == 0 )
+73             \textcolor{keywordflow}{return} 1;
+74     \}
+75 
+76     \textcolor{keywordflow}{return} 0;
+77 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{spider_8cpp_a043d25255bb1b46f4b42c0bbefffe7c8}\label{spider_8cpp_a043d25255bb1b46f4b42c0bbefffe7c8}} 
+\index{spider.\+cpp@{spider.\+cpp}!Spider@{Spider}}
+\index{Spider@{Spider}!spider.\+cpp@{spider.\+cpp}}
+\subsubsection{\texorpdfstring{Spider()}{Spider()}}
+{\footnotesize\ttfamily void Spider (\begin{DoxyParamCaption}\item[{char $\ast$}]{url,  }\item[{char $\ast$}]{host,  }\item[{\mbox{\hyperlink{structurl_node}{url\+Node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de spider a partir de uma U\+RL, lista de nós e um link de host. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em url} & \\
+\hline
+{\em host} & \\
+\hline
+{\em list} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+87 \{
+88     \textcolor{keywordtype}{char} nxtUrl[MAXBUFFSIZE], tmpUrl[MAXBUFFSIZE], tmpLine[MAXBUFFSIZE], parentUrl[MAXBUFFSIZE];
+89     \textcolor{keywordtype}{char} *j, *ptr;
+90     \textcolor{keywordtype}{int} i, k, tNode, parentSize, depth, w;
+91     i = depth = 0;
+92 
+93     std::FILE*  fileBuf;
+94     \mbox{\hyperlink{structurl_node}{urlNode}} *nextNode, *lastVisited;
+95 
+96     std::memset( nxtUrl, 0, MAXBUFFSIZE );
+97     std::memset( tmpUrl, 0, MAXBUFFSIZE );
+98     std::memset( tmpLine, 0, MAXBUFFSIZE );
+99     std::memset( parentUrl, 0, MAXBUFFSIZE );
+100 
+101     \mbox{\hyperlink{spider_8cpp_a89dcb2b6f6c70ef955329aae9d85b964}{AddNode}}( list, NULL, url ); \textcolor{comment}{// Nova lista, sem pai, a partir do link}
+102 
+103     lastVisited = NULL;
+104     nextNode = *list;
+105     \mbox{\hyperlink{parser_8h_a836b1c128e1a55ecd9312198e84ff586}{GetRequestParent}}( url, parentUrl, MAXBUFFSIZE ); \textcolor{comment}{// Obtém pai do link}
+106 
+107     parentSize = std::strlen( parentUrl );
+108     \textcolor{keywordflow}{if}( parentUrl[parentSize] == \textcolor{charliteral}{'/'} )
+109     \{
+110         parentUrl[parentSize] = \textcolor{charliteral}{'\(\backslash\)0'};
+111         parentSize--;
+112     \}
+113 
+114     \textcolor{comment}{// Remove '/' do final do link, para formatação para processamento}
+115     \textcolor{keywordflow}{if}( parentUrl[parentSize-1] == \textcolor{charliteral}{'/'} )
+116         parentUrl[parentSize-1] = \textcolor{charliteral}{'\(\backslash\)0'};
+117 
+118     std::strcpy( nxtUrl, url ); \textcolor{comment}{// Copia a URL}
+119 
+120     \textcolor{comment}{// Enquanto houverem objetos a serem visitados}
+121     \textcolor{keywordflow}{while}( nextNode != NULL )
+122     \{
+123         \textcolor{keywordflow}{if}( depth < (nextNode->depth+1) )
+124             depth = nextNode->depth + 1;
+125         \textcolor{keywordflow}{if}( \mbox{\hyperlink{spider_8cpp_aec48bc8077cdd0125c42fb30dbbbf21a}{Find}}( nextNode, nxtUrl ) == 0 && \mbox{\hyperlink{parser_8h_a5a941c1f46841c46f3cf98100c806a0e}{CountChar}}( nxtUrl, \textcolor{charliteral}{'#'}, std::strlen( nxtUrl ) ) 
+      == 0 )
+126         \{
+127         \}
+128         
+129     \}
+130 \}
+\end{DoxyCode}

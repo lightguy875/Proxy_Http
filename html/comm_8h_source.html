@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>proxy_Http: Código-Fonte de include/comm.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">proxy_Http
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">comm.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef COMM_H</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define COMM_H</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">int</span> sendRequest( <span class="keywordtype">void</span> );</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">int</span> <a class="code" href="comm_8cpp.html#a290029d3dfdd920bdc7f8c7755aeb1ec">createSock</a>();</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> <a class="code" href="comm_8cpp.html#a8925ef26ff36fd56535184f3710484de">configAddr</a>(<span class="keywordtype">int</span>, <span class="keyword">struct</span> sockaddr_in *);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">int</span> <a class="code" href="comm_8cpp.html#aaaacaa258a8be89cdb74ef03ab61df9d">Connect</a>(<span class="keywordtype">int</span>, <span class="keyword">struct</span> sockaddr_in *);</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">int</span> <a class="code" href="comm_8cpp.html#aa7d7f9287ed1c0cee7692e166458b6c3">Receive</a>(<span class="keywordtype">int</span>, <span class="keywordtype">char</span> *);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">int</span> <a class="code" href="comm_8cpp.html#a31d5a7e33d4c3f82460abd3075155dcb">Bind</a>(<span class="keywordtype">int</span>, <span class="keyword">struct</span> sockaddr_in *);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">int</span> <a class="code" href="comm_8cpp.html#a48a8abcf390fdd627d127757cf031b57">Accept</a>(<span class="keywordtype">int</span> socket);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">int</span> <a class="code" href="comm_8cpp.html#a51870483c259fddbec61d840cdfcf5c4">Send</a>(<span class="keywordtype">int</span> ,<span class="keywordtype">char</span> *);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">int</span> <a class="code" href="comm_8cpp.html#abb8b6c0162f0f8a8e83c99a6ee3d55ba">GetIP</a>(<span class="keywordtype">char</span> *, <span class="keywordtype">char</span> *);</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif//COMM_H</span></div><div class="ttc" id="comm_8cpp_html_a51870483c259fddbec61d840cdfcf5c4"><div class="ttname"><a href="comm_8cpp.html#a51870483c259fddbec61d840cdfcf5c4">Send</a></div><div class="ttdeci">int Send(int socket, char *message)</div><div class="ttdoc">Enviar o socket com uma mensagem. </div><div class="ttdef"><b>Definition:</b> comm.cpp:215</div></div>
+<div class="ttc" id="comm_8cpp_html_a48a8abcf390fdd627d127757cf031b57"><div class="ttname"><a href="comm_8cpp.html#a48a8abcf390fdd627d127757cf031b57">Accept</a></div><div class="ttdeci">int Accept(int socket)</div><div class="ttdoc">Aceita a conexão com o sistema. </div><div class="ttdef"><b>Definition:</b> comm.cpp:204</div></div>
+<div class="ttc" id="comm_8cpp_html_aa7d7f9287ed1c0cee7692e166458b6c3"><div class="ttname"><a href="comm_8cpp.html#aa7d7f9287ed1c0cee7692e166458b6c3">Receive</a></div><div class="ttdeci">int Receive(int socket, char *message)</div><div class="ttdoc">Recepção de dados do mensageiro. </div><div class="ttdef"><b>Definition:</b> comm.cpp:183</div></div>
+<div class="ttc" id="comm_8cpp_html_a290029d3dfdd920bdc7f8c7755aeb1ec"><div class="ttname"><a href="comm_8cpp.html#a290029d3dfdd920bdc7f8c7755aeb1ec">createSock</a></div><div class="ttdeci">int createSock(void)</div><div class="ttdoc">Create a Sock object. </div><div class="ttdef"><b>Definition:</b> comm.cpp:123</div></div>
+<div class="ttc" id="comm_8cpp_html_a8925ef26ff36fd56535184f3710484de"><div class="ttname"><a href="comm_8cpp.html#a8925ef26ff36fd56535184f3710484de">configAddr</a></div><div class="ttdeci">void configAddr(int port, struct sockaddr_in *address)</div><div class="ttdoc">Configura o endereço do socket criado. </div><div class="ttdef"><b>Definition:</b> comm.cpp:133</div></div>
+<div class="ttc" id="comm_8cpp_html_a31d5a7e33d4c3f82460abd3075155dcb"><div class="ttname"><a href="comm_8cpp.html#a31d5a7e33d4c3f82460abd3075155dcb">Bind</a></div><div class="ttdeci">int Bind(int socket, struct sockaddr_in *address)</div><div class="ttdoc">Realiza a junção da porta pelo endereço ip. </div><div class="ttdef"><b>Definition:</b> comm.cpp:194</div></div>
+<div class="ttc" id="comm_8cpp_html_abb8b6c0162f0f8a8e83c99a6ee3d55ba"><div class="ttname"><a href="comm_8cpp.html#abb8b6c0162f0f8a8e83c99a6ee3d55ba">GetIP</a></div><div class="ttdeci">int GetIP(char hostname[], char *ip)</div><div class="ttdoc">Pega o ip do host. </div><div class="ttdef"><b>Definition:</b> comm.cpp:147</div></div>
+<div class="ttc" id="comm_8cpp_html_aaaacaa258a8be89cdb74ef03ab61df9d"><div class="ttname"><a href="comm_8cpp.html#aaaacaa258a8be89cdb74ef03ab61df9d">Connect</a></div><div class="ttdeci">int Connect(int socket, struct sockaddr_in *address)</div><div class="ttdoc">Realiza a conexão tcp. </div><div class="ttdef"><b>Definition:</b> comm.cpp:173</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

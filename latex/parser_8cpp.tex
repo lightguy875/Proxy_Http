@@ -1,0 +1,433 @@
+\hypertarget{parser_8cpp}{}\section{Referência do Arquivo src/parser.cpp}
+\label{parser_8cpp}\index{src/parser.\+cpp@{src/parser.\+cpp}}
+{\ttfamily \#include \char`\"{}parser.\+h\char`\"{}}\newline
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{parser_8cpp_a5a941c1f46841c46f3cf98100c806a0e}{Count\+Char}} (char $\ast$string, char symb, int size)
+\begin{DoxyCompactList}\small\item\em Conta a quantidade de characteres de um programa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parser_8cpp_a4160a8879eaf71be48e17e363f2755e4}{Get\+String}} (char $\ast$string, int pos, char halt\+Sgn, char $\ast$buf, int buf\+Size, char $\ast$rtn, int rtn\+Size)
+\begin{DoxyCompactList}\small\item\em obtem a sting a partir de um objeto, tamanho e posição \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parser_8cpp_a269d44a026e3a9ca7c9e9d9150149901}{Request\+U\+RL}} (char $\ast$buf, int buf\+Size, char $\ast$url, int url\+Size)
+\begin{DoxyCompactList}\small\item\em Realiza o Request de uma U\+RL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parser_8cpp_a92dbc7ddb2bdde346ff346174024d347}{Request\+Host}} (char $\ast$buf, int buf\+Size, char $\ast$host, int host\+Size)
+\begin{DoxyCompactList}\small\item\em Realiza o request a partir de um host. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{parser_8cpp_a6c0a86aee39daf27d8b063fcc6428224}\label{parser_8cpp_a6c0a86aee39daf27d8b063fcc6428224}} 
+void {\bfseries Get\+Name} (char $\ast$url, char $\ast$name, int name\+Size)
+\item 
+void \mbox{\hyperlink{parser_8cpp_a27844bd714dbfbaa5cece5b9a3fd6048}{Remove\+H\+T\+T\+P\+From\+Url}} (char $\ast$url\+\_\+in, char $\ast$url\+\_\+out, int out\+Size)
+\begin{DoxyCompactList}\small\item\em Parser para remover string de uma U\+RL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parser_8cpp_a04af34047b3f21a4051427e14d97e1ff}{Get\+Html\+Header}} (char $\ast$buf, int buf\+Size, \mbox{\hyperlink{structhtml_header}{html\+Header}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Obtem o arquivo html a partir de um header H\+T\+TP. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parser_8cpp_a776af25c8f23461023e11dba872c5a29}{Get\+Path}} (char $\ast$url, char $\ast$path, int path\+Size)
+\begin{DoxyCompactList}\small\item\em Pega o caminho a partir de uma U\+RL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parser_8cpp_a836b1c128e1a55ecd9312198e84ff586}{Get\+Request\+Parent}} (char $\ast$url, char $\ast$rtn, int rtn\+Size)
+\begin{DoxyCompactList}\small\item\em Obtem o Request de um elemento parente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+\begin{DoxyAuthor}{Autor}
+Luís Eduardo Luz Silva -\/ 15/0137885 (\href{mailto:lightguy875@github.com}{\tt lightguy875@github.\+com}) 
+
+Gabriel Augusto Correia -\/ 15/0126000 (\href{mailto:GustoMelchior@github.com}{\tt Gusto\+Melchior@github.\+com}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2018-\/12-\/11
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2018 
+\end{DoxyCopyright}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{parser_8cpp_a5a941c1f46841c46f3cf98100c806a0e}\label{parser_8cpp_a5a941c1f46841c46f3cf98100c806a0e}} 
+\index{parser.\+cpp@{parser.\+cpp}!Count\+Char@{Count\+Char}}
+\index{Count\+Char@{Count\+Char}!parser.\+cpp@{parser.\+cpp}}
+\subsubsection{\texorpdfstring{Count\+Char()}{CountChar()}}
+{\footnotesize\ttfamily int Count\+Char (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char}]{symb,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Conta a quantidade de characteres de um programa. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em string} & \\
+\hline
+{\em symb} & \\
+\hline
+{\em size} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+22 \{
+23     \textcolor{keywordtype}{int} count = 0;
+24     \textcolor{keywordtype}{int} i;
+25     \textcolor{keywordflow}{for}( i = 0; i < size-1; i++ )
+26         \textcolor{keywordflow}{if}( \textcolor{keywordtype}{string}[i] == symb ) count++;
+27     \textcolor{keywordflow}{return} count;
+28 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{parser_8cpp_a04af34047b3f21a4051427e14d97e1ff}\label{parser_8cpp_a04af34047b3f21a4051427e14d97e1ff}} 
+\index{parser.\+cpp@{parser.\+cpp}!Get\+Html\+Header@{Get\+Html\+Header}}
+\index{Get\+Html\+Header@{Get\+Html\+Header}!parser.\+cpp@{parser.\+cpp}}
+\subsubsection{\texorpdfstring{Get\+Html\+Header()}{GetHtmlHeader()}}
+{\footnotesize\ttfamily void Get\+Html\+Header (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int}]{buf\+Size,  }\item[{\mbox{\hyperlink{structhtml_header}{html\+Header}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Obtem o arquivo html a partir de um header H\+T\+TP. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em buf} & \\
+\hline
+{\em buf\+Size} & \\
+\hline
+{\em header} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+172 \{
+173     \mbox{\hyperlink{structhtml_header}{htmlHeader}}* rtn;
+174     rtn = (\mbox{\hyperlink{structhtml_header}{htmlHeader}}*)std::malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structhtml_header}{htmlHeader}}));
+175     std::memset(rtn->header,0,HTMLHEADERSIZE);
+176     std::memset(rtn->name,0,256);
+177     std::FILE *file;
+178     \textcolor{keywordtype}{char} name[256];
+179     
+180     \textcolor{keywordtype}{int} i, CrNl, CrNlCount;
+181     CrNl = CrNlCount = 0;
+182 
+183     \textcolor{keywordflow}{for}( i = 0; i < bufSize-3; i++ )
+184     \{
+185         \textcolor{keywordflow}{if}( buf[i] == \textcolor{charliteral}{'\(\backslash\)r'} && buf[i+1] == \textcolor{charliteral}{'\(\backslash\)n'} && buf[i+2] == \textcolor{charliteral}{'\(\backslash\)r'} && buf[i+3] == \textcolor{charliteral}{'\(\backslash\)n'} )
+186         \{
+187             rtn->header[i] = \textcolor{charliteral}{'\(\backslash\)r'};
+188             rtn->header[i+1] = \textcolor{charliteral}{'\(\backslash\)n'};
+189             rtn->header[i+2] = \textcolor{charliteral}{'\(\backslash\)0'};
+190             rtn->size = i+1;
+191             \textcolor{keywordflow}{break};
+192         \}
+193         rtn->header[i] = buf[i];
+194     \}
+195 
+196     i += 3; \textcolor{comment}{// Normaliza}
+197 
+198     \textcolor{keywordflow}{if}( i < bufSize )
+199     \{
+200         std::strcpy( rtn->name, name );
+201         file = fopen( name, \textcolor{stringliteral}{"w"} );
+202 
+203         \textcolor{keywordflow}{if}( file == NULL ) exit(1); \textcolor{comment}{// Erro}
+204 
+205         \textcolor{keywordflow}{for} (;i < bufSize; i++)
+206         \{
+207             fprintf( file, \textcolor{stringliteral}{"%c"}, buf[i] );
+208         \}
+209 
+210         std::fclose( file );
+211     \}
+212     \textcolor{keywordflow}{else}
+213     \{
+214         rtn->name[0] = \textcolor{charliteral}{'-'};
+215         rtn->name[1] = \textcolor{charliteral}{'1'};
+216         rtn->name[2] = \textcolor{charliteral}{'\(\backslash\)0'};
+217     \}
+218 
+219     header = rtn;
+220 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{parser_8cpp_a776af25c8f23461023e11dba872c5a29}\label{parser_8cpp_a776af25c8f23461023e11dba872c5a29}} 
+\index{parser.\+cpp@{parser.\+cpp}!Get\+Path@{Get\+Path}}
+\index{Get\+Path@{Get\+Path}!parser.\+cpp@{parser.\+cpp}}
+\subsubsection{\texorpdfstring{Get\+Path()}{GetPath()}}
+{\footnotesize\ttfamily void Get\+Path (\begin{DoxyParamCaption}\item[{char $\ast$}]{url,  }\item[{char $\ast$}]{path,  }\item[{int}]{path\+Size }\end{DoxyParamCaption})}
+
+
+
+Pega o caminho a partir de uma U\+RL. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em url} & \\
+\hline
+{\em path} & \\
+\hline
+{\em path\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Referencias Get\+Request\+Parent().
+
+
+\begin{DoxyCode}
+229 \{
+230     \textcolor{keywordtype}{int} i, j, urlSize = std::strlen(url);
+231     \textcolor{keywordtype}{char} parent[256], name[256];
+232     \textcolor{keywordtype}{int} parentSize, nameSize, pathBoundary;
+233 
+234     std::memset( path, 0, pathSize );
+235 
+236     \mbox{\hyperlink{parser_8cpp_a836b1c128e1a55ecd9312198e84ff586}{GetRequestParent}}( url, parent, 256 );
+237     GetName( url, name, 256 );
+238 
+239     parentSize = std::strlen( parent );
+240     nameSize = std::strlen( name );
+241     pathBoundary = urlSize - nameSize;
+242 
+243     \textcolor{keywordflow}{for} ( i = parentSize; i < pathBoundary && j < pathSize; i++, j++)
+244     \{
+245         path[j] = url[i];
+246     \}
+247 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{parser_8cpp_a836b1c128e1a55ecd9312198e84ff586}\label{parser_8cpp_a836b1c128e1a55ecd9312198e84ff586}} 
+\index{parser.\+cpp@{parser.\+cpp}!Get\+Request\+Parent@{Get\+Request\+Parent}}
+\index{Get\+Request\+Parent@{Get\+Request\+Parent}!parser.\+cpp@{parser.\+cpp}}
+\subsubsection{\texorpdfstring{Get\+Request\+Parent()}{GetRequestParent()}}
+{\footnotesize\ttfamily void Get\+Request\+Parent (\begin{DoxyParamCaption}\item[{char $\ast$}]{url,  }\item[{char $\ast$}]{rtn,  }\item[{int}]{rtn\+Size }\end{DoxyParamCaption})}
+
+
+
+Obtem o Request de um elemento parente. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em url} & \\
+\hline
+{\em rtn} & \\
+\hline
+{\em rtn\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Referenciado(a) por Get\+Path().
+
+
+\begin{DoxyCode}
+256 \{
+257     \textcolor{keywordtype}{int} i, slashIndex = 0, slashCounter = 0;
+258     \textcolor{keywordtype}{int} urlSize = std::strlen( url );
+259 
+260     std::memset( rtn, 0, rtnSize );
+261 
+262     \textcolor{keywordflow}{for}( i = 0; i < urlSize; i++ )
+263     \{
+264         \textcolor{keywordflow}{if}( url[i] == \textcolor{charliteral}{'/'})
+265         \{
+266             slashCounter += 1;
+267         \}
+268 
+269         \textcolor{keywordflow}{if}( slashCounter == 3 )
+270         \{
+271             slashIndex = i;
+272             \textcolor{keywordflow}{break};
+273         \}
+274     \}
+275 
+276     \textcolor{keywordflow}{if}( slashIndex != 0 )
+277     \{
+278         \textcolor{keywordflow}{for}( i = 0; i < slashIndex && i < rtnSize; i++ )
+279         \{
+280             rtn[i] = url[i];
+281         \}
+282     \}
+283     \textcolor{keywordflow}{else}
+284     \{
+285         std::strcpy( rtn, url );
+286     \}
+287 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{parser_8cpp_a4160a8879eaf71be48e17e363f2755e4}\label{parser_8cpp_a4160a8879eaf71be48e17e363f2755e4}} 
+\index{parser.\+cpp@{parser.\+cpp}!Get\+String@{Get\+String}}
+\index{Get\+String@{Get\+String}!parser.\+cpp@{parser.\+cpp}}
+\subsubsection{\texorpdfstring{Get\+String()}{GetString()}}
+{\footnotesize\ttfamily void Get\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{int}]{pos,  }\item[{char}]{halt\+Sgn,  }\item[{char $\ast$}]{buf,  }\item[{int}]{buf\+Size,  }\item[{char $\ast$}]{rtn,  }\item[{int}]{rtn\+Size }\end{DoxyParamCaption})}
+
+
+
+obtem a sting a partir de um objeto, tamanho e posição 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em string} & \\
+\hline
+{\em pos} & \\
+\hline
+{\em halt\+Sgn} & \\
+\hline
+{\em buf} & \\
+\hline
+{\em buf\+Size} & \\
+\hline
+{\em rtn} & \\
+\hline
+{\em rtn\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Referenciado(a) por Request\+Host() e Request\+U\+R\+L().
+
+
+\begin{DoxyCode}
+41 \{
+42     \textcolor{keywordtype}{char} *ptr, *idx;
+43     \textcolor{keywordtype}{int} j;
+44     \textcolor{keywordtype}{int} paramSize = std::strlen(\textcolor{keywordtype}{string}) + pos;
+45 
+46     memset( rtn, 0,rtnSize );
+47 
+48     ptr = std::strstr( buf, \textcolor{keywordtype}{string} );
+49 
+50     \textcolor{keywordflow}{if}( ptr != NULL )
+51     \{
+52         \textcolor{keywordflow}{for}( idx = (ptr + paramSize), j=0; idx < (buf + bufSize) && j < rtnSize; idx++)
+53         \{
+54             \textcolor{keywordflow}{if}( *idx == haltSgn )
+55             \{
+56                 rtn[j] = \textcolor{charliteral}{'\(\backslash\)0'};
+57                 \textcolor{keywordflow}{break};
+58             \}
+59 
+60             rtn[j] = *idx;
+61             j++;
+62         \}
+63     \}
+64 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{parser_8cpp_a27844bd714dbfbaa5cece5b9a3fd6048}\label{parser_8cpp_a27844bd714dbfbaa5cece5b9a3fd6048}} 
+\index{parser.\+cpp@{parser.\+cpp}!Remove\+H\+T\+T\+P\+From\+Url@{Remove\+H\+T\+T\+P\+From\+Url}}
+\index{Remove\+H\+T\+T\+P\+From\+Url@{Remove\+H\+T\+T\+P\+From\+Url}!parser.\+cpp@{parser.\+cpp}}
+\subsubsection{\texorpdfstring{Remove\+H\+T\+T\+P\+From\+Url()}{RemoveHTTPFromUrl()}}
+{\footnotesize\ttfamily void Remove\+H\+T\+T\+P\+From\+Url (\begin{DoxyParamCaption}\item[{char $\ast$}]{url\+\_\+in,  }\item[{char $\ast$}]{url\+\_\+out,  }\item[{int}]{out\+Size }\end{DoxyParamCaption})}
+
+
+
+Parser para remover string de uma U\+RL. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em url\+\_\+in} & \\
+\hline
+{\em url\+\_\+out} & \\
+\hline
+{\em out\+Size} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+130 \{
+131     \textcolor{keywordtype}{int} inSize = std::strlen( url\_in );
+132     std::memset( url\_out, 0, outSize );
+133 
+134     \textcolor{keywordtype}{int} i;
+135 
+136     \textcolor{keywordflow}{if} (inSize > 7)
+137     \{
+138         \textcolor{keywordflow}{if} (url\_in[0] == \textcolor{charliteral}{'h'} && url\_in[1] == \textcolor{charliteral}{'t'} && url\_in[2] == \textcolor{charliteral}{'t'} && url\_in[3] == \textcolor{charliteral}{'p'} && url\_in[4] == \textcolor{charliteral}{
+      ':'} && url\_in[5] == \textcolor{charliteral}{'/'} && url\_in[6] == \textcolor{charliteral}{'/'} )
+139         \{
+140             \textcolor{keywordflow}{for} (i = 6; i <= inSize && (i-6) < outSize; i++)
+141             \{
+142                     url\_out[i-6] = url\_in[i];
+143             \}
+144             \textcolor{keywordflow}{return};
+145         \}
+146     \}
+147     std::strcpy( url\_out, url\_in );
+148     \textcolor{keywordflow}{if} (outSize > 0)
+149     \{
+150         \textcolor{keywordflow}{for}(i = (outSize -2); i > 0; i--)
+151         \{
+152             \textcolor{keywordflow}{if}(url\_out[i] == \textcolor{charliteral}{'/'} && url\_out[i+1] == \textcolor{charliteral}{'\(\backslash\)0'})
+153             \{
+154                 url\_out[i] = \textcolor{charliteral}{'\(\backslash\)0'};
+155                 \textcolor{keywordflow}{break};
+156             \}
+157         \}
+158 
+159         \textcolor{keywordflow}{if}(url\_out[(outSize-1)] == \textcolor{charliteral}{'/'})
+160             url\_out[(outSize-1)] = \textcolor{charliteral}{'\(\backslash\)0'};
+161     \}
+162 
+163 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{parser_8cpp_a92dbc7ddb2bdde346ff346174024d347}\label{parser_8cpp_a92dbc7ddb2bdde346ff346174024d347}} 
+\index{parser.\+cpp@{parser.\+cpp}!Request\+Host@{Request\+Host}}
+\index{Request\+Host@{Request\+Host}!parser.\+cpp@{parser.\+cpp}}
+\subsubsection{\texorpdfstring{Request\+Host()}{RequestHost()}}
+{\footnotesize\ttfamily void Request\+Host (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int}]{buf\+Size,  }\item[{char $\ast$}]{host,  }\item[{int}]{host\+Size }\end{DoxyParamCaption})}
+
+
+
+Realiza o request a partir de um host. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em buf} & \\
+\hline
+{\em buf\+Size} & \\
+\hline
+{\em host} & \\
+\hline
+{\em host\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Referencias Get\+String().
+
+
+\begin{DoxyCode}
+93 \{
+94     \mbox{\hyperlink{parser_8cpp_a4160a8879eaf71be48e17e363f2755e4}{GetString}}( \textcolor{stringliteral}{"Host:"}, 1, \textcolor{charliteral}{'\(\backslash\)r'}, buf, bufSize, host, hostSize );
+95 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{parser_8cpp_a269d44a026e3a9ca7c9e9d9150149901}\label{parser_8cpp_a269d44a026e3a9ca7c9e9d9150149901}} 
+\index{parser.\+cpp@{parser.\+cpp}!Request\+U\+RL@{Request\+U\+RL}}
+\index{Request\+U\+RL@{Request\+U\+RL}!parser.\+cpp@{parser.\+cpp}}
+\subsubsection{\texorpdfstring{Request\+U\+R\+L()}{RequestURL()}}
+{\footnotesize\ttfamily void Request\+U\+RL (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int}]{buf\+Size,  }\item[{char $\ast$}]{url,  }\item[{int}]{url\+Size }\end{DoxyParamCaption})}
+
+
+
+Realiza o Request de uma U\+RL. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em buf} & \\
+\hline
+{\em buf\+Size} & \\
+\hline
+{\em url} & \\
+\hline
+{\em url\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Referencias Get\+String().
+
+
+\begin{DoxyCode}
+75 \{
+76     \mbox{\hyperlink{parser_8cpp_a4160a8879eaf71be48e17e363f2755e4}{GetString}}( \textcolor{stringliteral}{"GET"}, 1, 0x20, buf, bufSize, url, urlSize );
+77 
+78     \textcolor{keywordflow}{if}( url[0] == \textcolor{charliteral}{'\(\backslash\)0'} )
+79     \{
+80         \mbox{\hyperlink{parser_8cpp_a4160a8879eaf71be48e17e363f2755e4}{GetString}}( \textcolor{stringliteral}{"POST"}, 1, 0x20, buf, bufSize, url, urlSize );
+81     \}
+82 \}
+\end{DoxyCode}

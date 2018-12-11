@@ -1,0 +1,268 @@
+\hypertarget{comm_8cpp}{}\section{Referência do Arquivo src/comm.cpp}
+\label{comm_8cpp}\index{src/comm.\+cpp@{src/comm.\+cpp}}
+
+
+Funções básicas do proxy.  
+
+
+{\ttfamily \#include \char`\"{}parser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}comm.\+h\char`\"{}}\newline
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{comm_8cpp_a5f4207aaaace3b9fc531670084eb7ef6}\label{comm_8cpp_a5f4207aaaace3b9fc531670084eb7ef6}} 
+int {\bfseries send\+Request} (void)
+\item 
+int \mbox{\hyperlink{comm_8cpp_a290029d3dfdd920bdc7f8c7755aeb1ec}{create\+Sock}} (void)
+\begin{DoxyCompactList}\small\item\em Create a Sock object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{comm_8cpp_a8925ef26ff36fd56535184f3710484de}{config\+Addr}} (int port, struct sockaddr\+\_\+in $\ast$address)
+\begin{DoxyCompactList}\small\item\em Configura o endereço do socket criado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{comm_8cpp_abb8b6c0162f0f8a8e83c99a6ee3d55ba}{Get\+IP}} (char hostname\mbox{[}$\,$\mbox{]}, char $\ast$ip)
+\begin{DoxyCompactList}\small\item\em Pega o ip do host. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{comm_8cpp_aaaacaa258a8be89cdb74ef03ab61df9d}{Connect}} (int socket, struct sockaddr\+\_\+in $\ast$address)
+\begin{DoxyCompactList}\small\item\em Realiza a conexão tcp. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{comm_8cpp_aa7d7f9287ed1c0cee7692e166458b6c3}{Receive}} (int socket, char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Recepção de dados do mensageiro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{comm_8cpp_a31d5a7e33d4c3f82460abd3075155dcb}{Bind}} (int socket, struct sockaddr\+\_\+in $\ast$address)
+\begin{DoxyCompactList}\small\item\em Realiza a junção da porta pelo endereço ip. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{comm_8cpp_a48a8abcf390fdd627d127757cf031b57}{Accept}} (int socket)
+\begin{DoxyCompactList}\small\item\em Aceita a conexão com o sistema. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{comm_8cpp_a51870483c259fddbec61d840cdfcf5c4}{Send}} (int socket, char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Enviar o socket com uma mensagem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+Funções básicas do proxy. 
+
+\begin{DoxyAuthor}{Autor}
+Luís Eduardo Luz Silva -\/ 15/0137885 (\href{mailto:lightguy875@github.com}{\tt lightguy875@github.\+com}) 
+
+Gabriel Augusto Correia -\/ 15/0126000 (\href{mailto:GustoMelchior@github.com}{\tt Gusto\+Melchior@github.\+com}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2018-\/12-\/11
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2018 
+\end{DoxyCopyright}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{comm_8cpp_a48a8abcf390fdd627d127757cf031b57}\label{comm_8cpp_a48a8abcf390fdd627d127757cf031b57}} 
+\index{comm.\+cpp@{comm.\+cpp}!Accept@{Accept}}
+\index{Accept@{Accept}!comm.\+cpp@{comm.\+cpp}}
+\subsubsection{\texorpdfstring{Accept()}{Accept()}}
+{\footnotesize\ttfamily int Accept (\begin{DoxyParamCaption}\item[{int}]{socket }\end{DoxyParamCaption})}
+
+
+
+Aceita a conexão com o sistema. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em socket} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+204                       \{
+205     \textcolor{keywordflow}{return} accept(socket, NULL, NULL);
+206 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comm_8cpp_a31d5a7e33d4c3f82460abd3075155dcb}\label{comm_8cpp_a31d5a7e33d4c3f82460abd3075155dcb}} 
+\index{comm.\+cpp@{comm.\+cpp}!Bind@{Bind}}
+\index{Bind@{Bind}!comm.\+cpp@{comm.\+cpp}}
+\subsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily int Bind (\begin{DoxyParamCaption}\item[{int}]{socket,  }\item[{struct sockaddr\+\_\+in $\ast$}]{address }\end{DoxyParamCaption})}
+
+
+
+Realiza a junção da porta pelo endereço ip. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em socket} & \\
+\hline
+{\em address} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+194                                                  \{
+195     \textcolor{keywordflow}{return} bind(socket, (\textcolor{keyword}{struct} sockaddr *) address, \textcolor{keyword}{sizeof}(*address));
+196 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comm_8cpp_a8925ef26ff36fd56535184f3710484de}\label{comm_8cpp_a8925ef26ff36fd56535184f3710484de}} 
+\index{comm.\+cpp@{comm.\+cpp}!config\+Addr@{config\+Addr}}
+\index{config\+Addr@{config\+Addr}!comm.\+cpp@{comm.\+cpp}}
+\subsubsection{\texorpdfstring{config\+Addr()}{configAddr()}}
+{\footnotesize\ttfamily void config\+Addr (\begin{DoxyParamCaption}\item[{int}]{port,  }\item[{struct sockaddr\+\_\+in $\ast$}]{address }\end{DoxyParamCaption})}
+
+
+
+Configura o endereço do socket criado. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em port} & \\
+\hline
+{\em address} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+134 \{
+135   bzero((\textcolor{keywordtype}{char} *) address, \textcolor{keyword}{sizeof}(*address));
+136   address->sin\_family = AF\_INET;
+137   address->sin\_port = htons(port);
+138   address->sin\_addr.s\_addr = INADDR\_ANY;
+139 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comm_8cpp_aaaacaa258a8be89cdb74ef03ab61df9d}\label{comm_8cpp_aaaacaa258a8be89cdb74ef03ab61df9d}} 
+\index{comm.\+cpp@{comm.\+cpp}!Connect@{Connect}}
+\index{Connect@{Connect}!comm.\+cpp@{comm.\+cpp}}
+\subsubsection{\texorpdfstring{Connect()}{Connect()}}
+{\footnotesize\ttfamily int Connect (\begin{DoxyParamCaption}\item[{int}]{socket,  }\item[{struct sockaddr\+\_\+in $\ast$}]{address }\end{DoxyParamCaption})}
+
+
+
+Realiza a conexão tcp. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em socket} & \\
+\hline
+{\em address} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+173                                                     \{
+174     \textcolor{keywordflow}{return} connect(socket, (\textcolor{keyword}{struct} sockaddr *) address, \textcolor{keyword}{sizeof}(*address));
+175 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comm_8cpp_a290029d3dfdd920bdc7f8c7755aeb1ec}\label{comm_8cpp_a290029d3dfdd920bdc7f8c7755aeb1ec}} 
+\index{comm.\+cpp@{comm.\+cpp}!create\+Sock@{create\+Sock}}
+\index{create\+Sock@{create\+Sock}!comm.\+cpp@{comm.\+cpp}}
+\subsubsection{\texorpdfstring{create\+Sock()}{createSock()}}
+{\footnotesize\ttfamily int create\+Sock (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Create a Sock object. 
+
+\begin{DoxyReturn}{Retorna}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+124 \{
+125   \textcolor{keywordflow}{return} socket(AF\_INET,SOCK\_STREAM,0);
+126 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comm_8cpp_abb8b6c0162f0f8a8e83c99a6ee3d55ba}\label{comm_8cpp_abb8b6c0162f0f8a8e83c99a6ee3d55ba}} 
+\index{comm.\+cpp@{comm.\+cpp}!Get\+IP@{Get\+IP}}
+\index{Get\+IP@{Get\+IP}!comm.\+cpp@{comm.\+cpp}}
+\subsubsection{\texorpdfstring{Get\+I\+P()}{GetIP()}}
+{\footnotesize\ttfamily int Get\+IP (\begin{DoxyParamCaption}\item[{char}]{hostname\mbox{[}$\,$\mbox{]},  }\item[{char $\ast$}]{ip }\end{DoxyParamCaption})}
+
+
+
+Pega o ip do host. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em hostname} & \\
+\hline
+{\em ip} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+147                                     \{
+148     \textcolor{keyword}{struct }hostent *he;
+149     \textcolor{keyword}{struct }in\_addr **addr\_list;
+150     \textcolor{keywordtype}{int} i;
+151 
+152     \textcolor{keywordflow}{if} ( (he = gethostbyname( hostname ) ) == NULL)
+153     \{
+154         \textcolor{keywordflow}{return} -1;
+155     \}
+156 
+157     addr\_list = (\textcolor{keyword}{struct }in\_addr **) he->h\_addr\_list;
+158 
+159     \textcolor{keywordflow}{for}(i = 0; addr\_list[i] != NULL; i++)
+160     \{
+161         strcpy(ip , inet\_ntoa(*addr\_list[i]) );
+162     \}
+163 
+164     \textcolor{keywordflow}{return} 0;
+165 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comm_8cpp_aa7d7f9287ed1c0cee7692e166458b6c3}\label{comm_8cpp_aa7d7f9287ed1c0cee7692e166458b6c3}} 
+\index{comm.\+cpp@{comm.\+cpp}!Receive@{Receive}}
+\index{Receive@{Receive}!comm.\+cpp@{comm.\+cpp}}
+\subsubsection{\texorpdfstring{Receive()}{Receive()}}
+{\footnotesize\ttfamily int Receive (\begin{DoxyParamCaption}\item[{int}]{socket,  }\item[{char $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Recepção de dados do mensageiro. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em socket} & \\
+\hline
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+183                                        \{
+184     \textcolor{keywordflow}{return} read(socket, message, \textcolor{keyword}{sizeof}(message));
+185 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comm_8cpp_a51870483c259fddbec61d840cdfcf5c4}\label{comm_8cpp_a51870483c259fddbec61d840cdfcf5c4}} 
+\index{comm.\+cpp@{comm.\+cpp}!Send@{Send}}
+\index{Send@{Send}!comm.\+cpp@{comm.\+cpp}}
+\subsubsection{\texorpdfstring{Send()}{Send()}}
+{\footnotesize\ttfamily int Send (\begin{DoxyParamCaption}\item[{int}]{socket,  }\item[{char $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Enviar o socket com uma mensagem. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em socket} & \\
+\hline
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+215                                     \{
+216     \textcolor{keywordflow}{return} send(socket, message, \textcolor{keyword}{sizeof}(message), 0);
+217 \}
+\end{DoxyCode}
